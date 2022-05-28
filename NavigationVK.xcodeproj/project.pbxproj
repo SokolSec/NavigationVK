@@ -11,6 +11,10 @@
 		8A1E67D41FDB9319E2904265 /* Pods_NavigationVK_Release.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C37CBC69DB7B3F13078E49F /* Pods_NavigationVK_Release.framework */; };
 		966F7BCA27D1270700C6A662 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F7BC927D1270700C6A662 /* AppDelegate.swift */; };
 		966F7BD327D1270800C6A662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 966F7BD227D1270800C6A662 /* Assets.xcassets */; };
+		B60446092842417A00901C80 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BFB38027FF0A29006D6E09 /* Post.swift */; };
+		B604460A2842417E00901C80 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BFB38027FF0A29006D6E09 /* Post.swift */; };
+		B604460B2842417F00901C80 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BFB38027FF0A29006D6E09 /* Post.swift */; };
+		B604460E2842425200901C80 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = B604460D2842425200901C80 /* iOSIntPackage */; };
 		B62B0B222840294E0000A98E /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BFB37E27FF0A29006D6E09 /* PostTableViewCell.swift */; };
 		B690A7B7283A4A67003A16BF /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = B690A7B6283A4A67003A16BF /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B690A7BA283A4A67003A16BF /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B690A7B4283A4A67003A16BF /* StorageService.framework */; };
@@ -38,9 +42,6 @@
 		B6D51D4927E5CF880069A7A1 /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D51D4827E5CF880069A7A1 /* ColorSet.swift */; };
 		B6D51D4D27E5D0410069A7A1 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D51D4C27E5D0410069A7A1 /* LogInViewController.swift */; };
 		B6F2358D2840D849006CCDC5 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = B6F2358C2840D849006CCDC5 /* iOSIntPackage */; };
-		B6F2358E2840E263006CCDC5 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BFB38027FF0A29006D6E09 /* Post.swift */; };
-		B6F2358F2840E263006CCDC5 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BFB38027FF0A29006D6E09 /* Post.swift */; };
-		B6F235902840E264006CCDC5 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BFB38027FF0A29006D6E09 /* Post.swift */; };
 		F300A28E916DF9C172FE5FF7 /* Pods_NavigationVK_Debug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EC3B6196953E88819A90AD /* Pods_NavigationVK_Debug.framework */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46107BE364C3DF20C540EE07 /* Pods_StorageService.framework in Frameworks */,
+				B604460E2842425200901C80 /* iOSIntPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +314,9 @@
 			dependencies = (
 			);
 			name = StorageService;
+			packageProductDependencies = (
+				B604460D2842425200901C80 /* iOSIntPackage */,
+			);
 			productName = StorageService;
 			productReference = B690A7B4283A4A67003A16BF /* StorageService.framework */;
 			productType = "com.apple.product-type.framework";
@@ -369,6 +374,7 @@
 			mainGroup = 966F7BBD27D1270700C6A662;
 			packageReferences = (
 				B6F2358B2840D849006CCDC5 /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
+				B604460C2842425200901C80 /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
 			);
 			productRefGroup = 966F7BC727D1270700C6A662 /* Products */;
 			projectDirPath = "";
@@ -516,7 +522,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6BFB38127FF0A29006D6E09 /* PostTableViewCell.swift in Sources */,
-				B6F235902840E264006CCDC5 /* Post.swift in Sources */,
+				B604460B2842417F00901C80 /* Post.swift in Sources */,
 				B6BFB38927FF2721006D6E09 /* InfoViewController.swift in Sources */,
 				B6BFB38527FF269C006D6E09 /* FeedViewController.swift in Sources */,
 				B6BFB37927FF0156006D6E09 /* OpenViewCollection.swift in Sources */,
@@ -534,7 +540,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B62B0B222840294E0000A98E /* PostTableViewCell.swift in Sources */,
-				B6F2358E2840E263006CCDC5 /* Post.swift in Sources */,
+				B60446092842417A00901C80 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,7 +549,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B690A7C6283A4A92003A16BF /* PostTableViewCell.swift in Sources */,
-				B6F2358F2840E263006CCDC5 /* Post.swift in Sources */,
+				B604460A2842417E00901C80 /* Post.swift in Sources */,
 				B690A7C8283A4A92003A16BF /* InfoViewController.swift in Sources */,
 				B690A7C9283A4A92003A16BF /* FeedViewController.swift in Sources */,
 				B690A7CA283A4A92003A16BF /* OpenViewCollection.swift in Sources */,
@@ -920,6 +926,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B604460C2842425200901C80 /* XCRemoteSwiftPackageReference "iOSIntPackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TrueMax/iOSIntPackage.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		B6F2358B2840D849006CCDC5 /* XCRemoteSwiftPackageReference "iOSIntPackage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TrueMax/iOSIntPackage.git";
@@ -931,6 +945,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B604460D2842425200901C80 /* iOSIntPackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B6F2358B2840D849006CCDC5 /* XCRemoteSwiftPackageReference "iOSIntPackage" */;
+			productName = iOSIntPackage;
+		};
 		B6F2358C2840D849006CCDC5 /* iOSIntPackage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B6F2358B2840D849006CCDC5 /* XCRemoteSwiftPackageReference "iOSIntPackage" */;

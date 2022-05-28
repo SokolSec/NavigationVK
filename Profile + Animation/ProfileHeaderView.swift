@@ -11,7 +11,7 @@ import iOSIntPackage
 class ProfileHeaderView : UIViewController, UITableViewDataSource {
     
     let posts = Post.publications()
-    
+        
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -91,15 +91,14 @@ class ProfileHeaderView : UIViewController, UITableViewDataSource {
         foto.image = UIImage(named: "full_image")
         return foto
     }()
-    
-//    var aaa = ImageProcessor().processImage(sourceImage: #imageLiteral(resourceName: "055"), filter: .monochrome(color: .red, intensity: 0.4), completion:
-    
+    let imageProcessor = ImageProcessor()
     var avatarImageView : UIImageView = {
         var avatarImageView = UIImageView()
         avatarImageView.image = UIImage.init(named: "055")
         avatarImageView.layer.borderWidth = 3
         avatarImageView.layer.cornerRadius = 60
         avatarImageView.clipsToBounds = true
+        
         return avatarImageView
     }()
     
@@ -193,7 +192,6 @@ class ProfileHeaderView : UIViewController, UITableViewDataSource {
         addConstraints()
         setupTouchAvatar()
         _touchButton()
-        
         
         tableView.snp.makeConstraints { make in
             make.top.equalTo(fon.snp.bottom).inset(-30)
