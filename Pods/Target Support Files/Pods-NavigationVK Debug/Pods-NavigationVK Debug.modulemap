@@ -1,0 +1,6 @@
+framework module Pods_NavigationVK_Debug {
+  umbrella header "Pods-NavigationVK Debug-umbrella.h"
+
+  export *
+  module * { export * }
+}

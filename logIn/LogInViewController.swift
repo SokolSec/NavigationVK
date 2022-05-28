@@ -77,13 +77,17 @@ class LogInViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        #if DEBUG
+        view.backgroundColor = .red
+        #else
+        view.backgroundColor = .systemGreen
+        #endif
+        
         setupViews()
     }
     
     func setupViews() {
-        
-        view.backgroundColor = .white
-        
         view.addSubview(scrollView)
 
         scrollView.addSubview(logoVKImageView)

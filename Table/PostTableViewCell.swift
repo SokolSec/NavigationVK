@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import iOSIntPackage
 
 class PostTableViewCell: UITableViewCell {
     
@@ -23,10 +24,10 @@ class PostTableViewCell: UITableViewCell {
         return author
     }()
  
-    private let imagePost : UIImageView = {
-        let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
+      private let imagePost : UIImageView = {
+        let imagePost = UIImageView()
+        imagePost.translatesAutoresizingMaskIntoConstraints = false
+        return imagePost
     }()
     
     private let descriptionPost : UILabel = {
@@ -68,6 +69,9 @@ class PostTableViewCell: UITableViewCell {
         newView.layer.borderColor = UIColor.black.cgColor
     }
     
+        let imageProcessor = ImageProcessor()
+
+    
     private func layout() {
         contentView.addSubview(newView)
         contentView.addSubview(imagePost)
@@ -76,6 +80,15 @@ class PostTableViewCell: UITableViewCell {
         contentView.addSubview(likesPost)
         contentView.addSubview(viewsPost)
         
+        if let image = imagePost.image {
+            imageProcessor.processImage(sourceImage: image, filter: .posterize) { filteredImage in
+           if let filteredImage = filteredImage {
+               imagePost.image = filteredImage
+           }
+          }
+        }
+    
+    
         NSLayoutConstraint.activate([
             newView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             newView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
@@ -110,7 +123,7 @@ class PostTableViewCell: UITableViewCell {
             
         ])
     }
-    
+        
     func setupCell(publications: Post) {
         authorPost.text = publications.author
         imagePost.image = publications.image

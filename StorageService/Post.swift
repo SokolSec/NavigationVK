@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import SnapKit
+import iOSIntPackage
 
 struct Post {
     let author : String

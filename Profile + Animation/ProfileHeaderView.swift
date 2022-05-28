@@ -4,9 +4,9 @@
 //
 //  Created by Даниил Сокол on 11.03.2022.
 //
-
-import Foundation
+import SnapKit
 import UIKit
+import iOSIntPackage
 
 class ProfileHeaderView : UIViewController, UITableViewDataSource {
     
@@ -15,7 +15,6 @@ class ProfileHeaderView : UIViewController, UITableViewDataSource {
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        table.translatesAutoresizingMaskIntoConstraints = false
         table.register(PostTableViewCell.self, forCellReuseIdentifier: String(describing: PostTableViewCell.self))
         return table
     }()
@@ -28,362 +27,377 @@ class ProfileHeaderView : UIViewController, UITableViewDataSource {
     }()
     
     let fon : UIView = {
-            let fonNew = UIView()
-            fonNew.translatesAutoresizingMaskIntoConstraints = false
-            fonNew.backgroundColor = .white
-            return fonNew
-        }()
-        
-        let fonForAnimation : UIView = {
-            let fonTwo = UIView()
-            fonTwo.translatesAutoresizingMaskIntoConstraints = false
-            fonTwo.backgroundColor = .white
-            fonTwo.alpha = 0.8
-            return fonTwo
-        }()
-        
-        let fonTable : UIView = {
+        var fonNew = UIView()
+        fonNew.backgroundColor = .white
+        return fonNew
+    }()
+    
+    let fonForAnimation : UIView = {
+        let fonTwo = UIView()
+        fonTwo.backgroundColor = .white
+        fonTwo.alpha = 0.8
+        return fonTwo
+    }()
+    
+    let fonTable : UIView = {
         let fonTable = UIView()
-            fonTable.translatesAutoresizingMaskIntoConstraints = false
-            fonTable.backgroundColor = .systemBlue
+        fonTable.backgroundColor = .systemBlue
         return fonTable
     }()
-        
-        
-        let textImage : UILabel = {
-            let text = UILabel()
-            text.text = "Photos"
-            text.tintColor = .black
-            text.translatesAutoresizingMaskIntoConstraints = false
-            text.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-            return text
-        }()
-        
-        let fotoOne : UIImageView = {
-            let foto = UIImageView()
-            foto.image = UIImage(named: "1")
-            foto.translatesAutoresizingMaskIntoConstraints = false
-            foto.layer.cornerRadius = 6
-            foto.clipsToBounds = true
-            return foto
-        }()
-        
-        let fotoTwo : UIImageView = {
-            let foto = UIImageView()
-            foto.image = UIImage(named: "2")
-            foto.translatesAutoresizingMaskIntoConstraints = false
-            foto.layer.cornerRadius = 6
-            foto.clipsToBounds = true
-            return foto
-        }()
-        
-        let fotoThree : UIImageView = {
-            let foto = UIImageView()
-            foto.image = UIImage(named: "3")
-            foto.translatesAutoresizingMaskIntoConstraints = false
-            foto.layer.cornerRadius = 6
-            foto.clipsToBounds = true
-            return foto
-        }()
-        
-        let fotoFour : UIImageView = {
-            let foto = UIImageView()
-            foto.image = UIImage(named: "4")
-            foto.translatesAutoresizingMaskIntoConstraints = false
-            foto.layer.cornerRadius = 6
-            foto.clipsToBounds = true
-            return foto
-        }()
-        
-        let rightImage : UIImageView = {
-            let foto = UIImageView()
-            foto.image = UIImage(named: "full_image")
-            foto.translatesAutoresizingMaskIntoConstraints = false
-            
-            return foto
-        }()
-        
-        var avatarImageView : UIImageView = {
-            var avatarImageView = UIImageView()
-            avatarImageView.image = UIImage(named: "055")
-            avatarImageView.translatesAutoresizingMaskIntoConstraints = false
-            avatarImageView.layer.borderColor = UIColor.white.cgColor
-            avatarImageView.layer.borderWidth = 3
-            avatarImageView.layer.cornerRadius = 60
-            avatarImageView.clipsToBounds = true
-            return avatarImageView
-        }()
-        
-        let avatarImageViewFull : UIImageView = {
-            let avatarImageViewFull = UIImageView()
-            avatarImageViewFull.image = UIImage(named: "055")
-            avatarImageViewFull.translatesAutoresizingMaskIntoConstraints = false
-            avatarImageViewFull.layer.borderColor = UIColor.white.cgColor
-            avatarImageViewFull.layer.borderWidth = 3
-            avatarImageViewFull.layer.cornerRadius = 60
-            avatarImageViewFull.clipsToBounds = true
-            return avatarImageViewFull
-        }()
-        
-        private let fullNameLabel :  UILabel = {
-            let label = UILabel()
-            label.text = "Hipster Cat"
-            label.textColor = .black
-            label.textAlignment = .center
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-            return label
-        }()
-        
-        private let statusLabel : UILabel = {
-            let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-            label.textColor = .gray
-            label.text = "Waiting for something..."
-            return label
-        }()
-        
-        private let setStatusButton : UIButton = {
-            let button = UIButton(frame: CGRect(x: 100, y: 100, width: 250, height: 75))
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.setTitle("Show status", for: .normal)
-            button.setTitleColor(.white, for: .normal)
-            button.backgroundColor = .systemBlue
-            button.layer.shadowOffset.width = 4
-            button.layer.shadowOffset.height = 4
-            button.layer.shadowRadius = 4
-            button.layer.shadowColor = UIColor.black.cgColor
-            button.layer.shadowOpacity = 0.7
-            button.layer.cornerRadius = 14
-            button.addTarget(self, action: #selector(pressStatusButton), for: .touchUpInside)
-            return button
-        }()
-        
-        lazy var closeAnimation : UIButton = {
-            let krestik = UIButton()
-            let image = UIImage(named: "krestik")
-            krestik.translatesAutoresizingMaskIntoConstraints = false
-            krestik.setBackgroundImage(image, for: UIControl.State.normal)
-            krestik.addTarget(self, action: #selector(animateStop), for: .touchUpInside)
-            return krestik
-        }()
-        
-        private let statusTextField: UITextField = {
-            let textField = UITextField()
-            textField.translatesAutoresizingMaskIntoConstraints = false
-            textField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-            textField.tintColor = .black
-            textField.layer.borderWidth = 1
-            textField.layer.borderColor = UIColor.black.cgColor
-            textField.layer.cornerRadius = 12
-            textField.backgroundColor = .white
-            textField.textAlignment = .center
-            textField.placeholder = "Change status"
-            textField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
-            return textField
-        }()
-        
-        private var statusText: String = ""
-        
-        @objc func pressStatusButton() {
-            statusLabel.text = statusTextField.text
-            print(statusLabel.text ?? "Non")
-            print(statusText)
+    
+    
+    let textImage : UILabel = {
+        let text = UILabel()
+        text.text = "Photos"
+        text.tintColor = .black
+        text.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        return text
+    }()
+    
+    let fotoOne : UIImageView = {
+        let foto = UIImageView()
+        foto.image = UIImage(named: "1")
+        foto.layer.cornerRadius = 6
+        foto.clipsToBounds = true
+        return foto
+    }()
+    
+    let fotoTwo : UIImageView = {
+        let foto = UIImageView()
+        foto.image = UIImage(named: "2")
+        foto.layer.cornerRadius = 6
+        foto.clipsToBounds = true
+        return foto
+    }()
+    
+    let fotoThree : UIImageView = {
+        let foto = UIImageView()
+        foto.image = UIImage(named: "3")
+        foto.layer.cornerRadius = 6
+        foto.clipsToBounds = true
+        return foto
+    }()
+    
+    let fotoFour : UIImageView = {
+        let foto = UIImageView()
+        foto.image = UIImage(named: "4")
+        foto.layer.cornerRadius = 6
+        foto.clipsToBounds = true
+        return foto
+    }()
+    
+    let rightImage : UIImageView = {
+        let foto = UIImageView()
+        foto.image = UIImage(named: "full_image")
+        return foto
+    }()
+    
+//    var aaa = ImageProcessor().processImage(sourceImage: #imageLiteral(resourceName: "055"), filter: .monochrome(color: .red, intensity: 0.4), completion:
+    
+    var avatarImageView : UIImageView = {
+        var avatarImageView = UIImageView()
+        avatarImageView.image = UIImage.init(named: "055")
+        avatarImageView.layer.borderWidth = 3
+        avatarImageView.layer.cornerRadius = 60
+        avatarImageView.clipsToBounds = true
+        return avatarImageView
+    }()
+    
+    let avatarImageViewFull : UIImageView = {
+        let avatarImageViewFull = UIImageView()
+        avatarImageViewFull.image = UIImage(named: "055")
+        avatarImageViewFull.layer.borderColor = UIColor.white.cgColor
+        avatarImageViewFull.layer.borderWidth = 3
+        avatarImageViewFull.layer.cornerRadius = 60
+        avatarImageViewFull.clipsToBounds = true
+        return avatarImageViewFull
+    }()
+    
+    private let fullNameLabel :  UILabel = {
+        let label = UILabel()
+        label.text = "Hipster Cat"
+        label.textColor = .black
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        return label
+    }()
+    
+    private let statusLabel : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.textColor = .gray
+        label.text = "Waiting for something..."
+        return label
+    }()
+    
+    var setStatusButton : UIButton = {
+        var button = UIButton(frame: CGRect(x: 100, y: 100, width: 250, height: 75))
+        button.setTitle("Show status", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .systemBlue
+        button.layer.shadowOffset.width = 4
+        button.layer.shadowOffset.height = 4
+        button.layer.shadowRadius = 4
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.7
+        button.layer.cornerRadius = 14
+        button.addTarget(self, action: #selector(pressStatusButton), for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var closeAnimation : UIButton = {
+        let krestik = UIButton()
+        let image = UIImage(named: "krestik")
+        krestik.setBackgroundImage(image, for: UIControl.State.normal)
+        krestik.addTarget(self, action: #selector(animateStop), for: .touchUpInside)
+        return krestik
+    }()
+    
+    private let statusTextField: UITextField = {
+        let textField = UITextField()
+        textField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        textField.tintColor = .black
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.black.cgColor
+        textField.layer.cornerRadius = 12
+        textField.backgroundColor = .white
+        textField.textAlignment = .center
+        textField.placeholder = "Change status"
+        textField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
+        return textField
+    }()
+    
+    private var statusText: String = ""
+    
+    @objc func pressStatusButton() {
+        statusLabel.text = statusTextField.text
+        print(statusLabel.text ?? "Non")
+        print(statusText)
+    }
+    
+    @objc func statusTextChanged(_ textField: UITextField) {
+        if let text = textField.text{
+            statusText = text
         }
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemGray6
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        view.addSubview(fonTable)
+        view.addSubview(tableView)
+        tableView.dataSource = self
+        tableView.delegate = self
+        addConstraints()
+        setupTouchAvatar()
+        _touchButton()
         
-        @objc func statusTextChanged(_ textField: UITextField) {
-            if let text = textField.text{
-                statusText = text
+        
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(fon.snp.bottom).inset(-30)
+            make.leading.equalTo(view.snp.leading)
+            make.trailing.equalTo(view.snp.trailing)
+            make.bottom.equalTo(view.snp.bottom)
+        }
+    }
+    
+    private func _touchButton() {
+        let _touch = UITapGestureRecognizer(target: self, action: #selector(touchButton(_touch:)))
+        rightImage.isUserInteractionEnabled = true
+        rightImage.addGestureRecognizer(_touch)
+    }
+    
+    @objc func touchButton(_touch: UITapGestureRecognizer) {
+        _ = _touch.view as! UIImageView
+        let pressTouch = OpenViewCollection()
+        present(pressTouch, animated: true)
+    }
+    
+    //Анимация аватарки
+    private func setupTouchAvatar() {
+        let touchAvatar = UITapGestureRecognizer(target: self, action: #selector(Tap(touchAvatar:)))
+        avatarImageView.isUserInteractionEnabled = true
+        avatarImageView.addGestureRecognizer(touchAvatar)
+    }
+    
+    @objc private func Tap(touchAvatar: UITapGestureRecognizer) {
+        animateStart()
+    }
+    
+    func animateStart() {
+        view.addSubview(fonForAnimation)
+        view.addSubview(avatarImageView)
+        view.addSubview(closeAnimation)
+        
+        avatarImageView.layer.borderColor = .none
+        avatarImageView.layer.borderWidth = 0
+        avatarImageView.layer.cornerRadius = 0
+        avatarImageView.clipsToBounds = true
+        
+        avatarImageView.isHidden = false
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut) {
+            
+            self.fonForAnimation.snp.makeConstraints { fonForAnimation in
+                fonForAnimation.top.equalTo(self.view.snp.top)
+                fonForAnimation.bottom.equalTo(self.view.snp.top)
+                fonForAnimation.leading.equalTo(self.view.snp.leading)
+                fonForAnimation.height.equalTo(self.view.snp.height)
+                fonForAnimation.centerX.equalTo(self.view.safeAreaLayoutGuide.snp.centerX)
+                fonForAnimation.centerY.equalTo(self.view.safeAreaLayoutGuide.snp.centerY)
             }
-        }
-        
-    
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            view.backgroundColor = .systemGray6
-            self.navigationItem.setHidesBackButton(true, animated: false)
-            view.addSubview(fonTable)
-            view.addSubview(tableView)
-            tableView.dataSource = self
-            tableView.delegate = self
-            addConstraints()
-            setupTouchAvatar()
-            _touchButton()
-    
-        
-            NSLayoutConstraint.activate([
-                tableView.topAnchor.constraint(equalTo: fon.safeAreaLayoutGuide.bottomAnchor, constant: -30),
-                tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-                tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-                tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
-            ])
-        }
-        
-        private func _touchButton() {
-            let _touch = UITapGestureRecognizer(target: self, action: #selector(touchButton(_touch:)))
-            rightImage.isUserInteractionEnabled = true
-            rightImage.addGestureRecognizer(_touch)
-        }
-        
-        @objc func touchButton(_touch: UITapGestureRecognizer) {
-            _ = _touch.view as! UIImageView
-            let pressTouch = OpenViewCollection()
-            present(pressTouch, animated: true)
-        }
-        
-        //Анимация аватарки
-        private func setupTouchAvatar() {
-            let touchAvatar = UITapGestureRecognizer(target: self, action: #selector(Tap(touchAvatar:)))
-            avatarImageView.isUserInteractionEnabled = true
-            avatarImageView.addGestureRecognizer(touchAvatar)
-        }
-        
-        @objc private func Tap(touchAvatar: UITapGestureRecognizer) {
-            animateStart()
-        }
-        
-        func animateStart() {
-            view.addSubview(fonForAnimation)
-            view.addSubview(avatarImageView)
-            view.addSubview(closeAnimation)
-    
-            avatarImageView.layer.borderColor = .none
-            avatarImageView.layer.borderWidth = 0
-            avatarImageView.layer.cornerRadius = 0
-            avatarImageView.clipsToBounds = true
             
-            avatarImageView.isHidden = false
-            UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut) {
-                NSLayoutConstraint.activate([
-                    self.fonForAnimation.topAnchor.constraint(equalTo: self.view.topAnchor),
-                    self.fonForAnimation.bottomAnchor.constraint(equalTo:  self.view.topAnchor),
-                    self.fonForAnimation.leadingAnchor.constraint(equalTo:  self.view.leadingAnchor),
-                    self.fonForAnimation.heightAnchor.constraint(equalTo:  self.view.heightAnchor),
-                    self.fonForAnimation.centerXAnchor.constraint(equalTo:  self.view.safeAreaLayoutGuide.centerXAnchor),
-                    self.fonForAnimation.centerYAnchor.constraint(equalTo:  self.view.safeAreaLayoutGuide.centerYAnchor),
-                    self.avatarImageView.topAnchor.constraint(equalTo:  self.view.topAnchor, constant: 280),
-                    self.avatarImageView.leftAnchor.constraint(equalTo:  self.fonForAnimation.leftAnchor),
-                    self.avatarImageView.rightAnchor.constraint(equalTo:  self.fonForAnimation.rightAnchor),
-                    self.avatarImageView.bottomAnchor.constraint(equalTo:  self.view.bottomAnchor, constant: -280)
-                ])
+            self.avatarImageView.snp.makeConstraints { avatarImageView in
+                avatarImageView.top.equalTo(self.view.snp.top).inset(280)
+                avatarImageView.left.equalTo(self.fonForAnimation.snp.left)
+                avatarImageView.right.equalTo(self.fonForAnimation.snp.right)
+                avatarImageView.bottom.equalTo(self.view.snp.bottom).inset(280)
+            }
+            
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            UIView.animate(withDuration: 0.3, delay: 0) {
+                self.closeAnimation.snp.makeConstraints { closeAnimation in
+                    closeAnimation.top.equalTo(self.fonForAnimation.safeAreaLayoutGuide.snp.top).inset(20)
+                    closeAnimation.right.equalTo( self.fonForAnimation.safeAreaLayoutGuide.snp.right).inset(20)
+                    closeAnimation.width.equalTo(20)
+                    closeAnimation.height.equalTo(20)
+                }
                 self.view.layoutIfNeeded()
-            } completion: { _ in
-                UIView.animate(withDuration: 0.3, delay: 0) {
-                    NSLayoutConstraint.activate([
-                        self.closeAnimation.topAnchor.constraint(equalTo: self.fonForAnimation.safeAreaLayoutGuide.topAnchor, constant: 20),
-                        self.closeAnimation.rightAnchor.constraint(equalTo: self.fonForAnimation.safeAreaLayoutGuide.rightAnchor, constant: -20),
-                        self.closeAnimation.widthAnchor.constraint(equalToConstant: 20),
-                        self.closeAnimation.heightAnchor.constraint(equalToConstant: 20),
-                    ])
-                    self.view.layoutIfNeeded()
-                }
             }
         }
-        
-        @objc func animateStop() {
-            UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut) {
-                
-                NSLayoutConstraint.activate([
-                    self.closeAnimation.topAnchor.constraint(equalTo: self.fonForAnimation.topAnchor, constant: -80),
-                    self.closeAnimation.leftAnchor.constraint(equalTo: self.fonForAnimation.leftAnchor, constant: -80),
-                    self.closeAnimation.widthAnchor.constraint(equalToConstant: 40),
-                    self.closeAnimation.heightAnchor.constraint(equalToConstant: 40),
-                ])
-                self.closeAnimation.removeFromSuperview()
-            } completion: { _ in
-                UIView.animate(withDuration: 0.3, delay: 0) {
-                    self.avatarImageView.image = UIImage(named: "055")
-                    self.avatarImageView.translatesAutoresizingMaskIntoConstraints = false
-                    self.avatarImageView.layer.borderColor = UIColor.white.cgColor
-                    self.avatarImageView.layer.borderWidth = 3
-                    self.avatarImageView.layer.cornerRadius = 60
-                    self.avatarImageView.clipsToBounds = true
-                    self.fonForAnimation.removeFromSuperview()
-                    self.avatarImageView.removeFromSuperview()
-                    self.addConstraints()
-                    self.view.layoutIfNeeded()
-                }
-            }
-        }
-        //Конец анимации аватарки
-        
-        func addConstraints() {
-            view.addSubview(fon)
-            view.addSubview(textImage)
-            view.addSubview(fotoTwo)
-            view.addSubview(fotoThree)
-            view.addSubview(fotoFour)
-            view.addSubview(fotoOne)
-            view.addSubview(avatarImageView)
-            view.addSubview(rightImage)
-            view.addSubview(avatarImageView)
-            view.addSubview(fullNameLabel)
-            view.addSubview(statusLabel)
-            view.addSubview(statusTextField)
-            view.addSubview(setStatusButton)
-            
-            NSLayoutConstraint.activate([
-                fon.topAnchor.constraint(equalTo: setStatusButton.safeAreaLayoutGuide.bottomAnchor, constant: 20),
-                fon.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor, constant: 0),
-                fon.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
-                fon.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
-                fon.bottomAnchor.constraint(equalTo: fotoOne.safeAreaLayoutGuide.bottomAnchor, constant: 12),
-                
-                textImage.topAnchor.constraint(equalTo: fon.safeAreaLayoutGuide.topAnchor, constant: 12),
-                textImage.leftAnchor.constraint(equalTo: fon.safeAreaLayoutGuide.leftAnchor, constant: 12),
-                
-                fotoOne.topAnchor.constraint(equalTo: textImage.safeAreaLayoutGuide.topAnchor, constant: 40),
-                fotoOne.leftAnchor.constraint(equalTo: fon.safeAreaLayoutGuide.leftAnchor, constant: 12),
-                fotoOne.widthAnchor.constraint(equalToConstant: 90),
-                fotoOne.heightAnchor.constraint(equalToConstant: 70),
-                
-                fotoTwo.topAnchor.constraint(equalTo: textImage.safeAreaLayoutGuide.topAnchor, constant: 40),
-                fotoTwo.leadingAnchor.constraint(equalTo: fotoOne.safeAreaLayoutGuide.leadingAnchor, constant: 94),
-                fotoTwo.widthAnchor.constraint(equalToConstant: 90),
-                fotoTwo.heightAnchor.constraint(equalToConstant: 70),
-                
-                fotoThree.topAnchor.constraint(equalTo: textImage.safeAreaLayoutGuide.topAnchor, constant: 40),
-                fotoThree.rightAnchor.constraint(equalTo: fotoTwo.safeAreaLayoutGuide.rightAnchor, constant: 94),
-                fotoThree.widthAnchor.constraint(equalToConstant: 90),
-                fotoThree.heightAnchor.constraint(equalToConstant: 70),
-                
-                fotoFour.topAnchor.constraint(equalTo: textImage.safeAreaLayoutGuide.topAnchor, constant: 40),
-                fotoFour.rightAnchor.constraint(equalTo: fon.safeAreaLayoutGuide.rightAnchor, constant: -5),
-                fotoFour.widthAnchor.constraint(equalToConstant: 90),
-                fotoFour.heightAnchor.constraint(equalToConstant: 70),
-                
-                rightImage.centerYAnchor.constraint(equalTo: textImage.safeAreaLayoutGuide.centerYAnchor, constant: 0),
-                rightImage.rightAnchor.constraint(equalTo: fotoFour.safeAreaLayoutGuide.rightAnchor, constant: -12),
-                rightImage.widthAnchor.constraint(equalToConstant: 20),
-                rightImage.heightAnchor.constraint(equalToConstant: 20),
-                
-                avatarImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-                avatarImageView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),
-                avatarImageView.widthAnchor.constraint(equalToConstant: 130),
-                avatarImageView.heightAnchor.constraint(equalToConstant: 130),
-                fullNameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 27),
-                fullNameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 28),
-                setStatusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 16),
-                setStatusButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-                setStatusButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-                setStatusButton.heightAnchor.constraint(equalToConstant: 50),
-                
-                statusLabel.leftAnchor.constraint(equalTo: fullNameLabel.leftAnchor, constant: 0),
-                statusLabel.bottomAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 30),
-                
-                statusTextField.leftAnchor.constraint(equalTo: statusLabel.leftAnchor, constant: 0),
-                statusTextField.bottomAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 60),
-                statusTextField.heightAnchor.constraint(equalToConstant: 38),
-                statusTextField.widthAnchor.constraint(equalToConstant: 130)
-            ])
-        }
+    }
     
+    @objc func animateStop() {
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut) {
+            
+            self.closeAnimation.snp.makeConstraints { closeAnimation in
+                closeAnimation.top.equalTo( self.fonForAnimation.snp.top).inset(-80)
+                closeAnimation.left.equalTo( self.fonForAnimation.snp.left).inset(-80)
+                closeAnimation.width.equalTo(40)
+                closeAnimation.height.equalTo(40)
+            }
+
+            self.closeAnimation.removeFromSuperview()
+        } completion: { _ in
+            UIView.animate(withDuration: 0.3, delay: 0) {
+                self.avatarImageView.image = UIImage(named: "055")
+                self.avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+                self.avatarImageView.layer.borderColor = UIColor.white.cgColor
+                self.avatarImageView.layer.borderWidth = 3
+                self.avatarImageView.layer.cornerRadius = 60
+                self.avatarImageView.clipsToBounds = true
+                self.fonForAnimation.removeFromSuperview()
+                self.avatarImageView.removeFromSuperview()
+                self.addConstraints()
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    //Конец анимации аватарки
+    
+    func addConstraints() {
+        view.addSubview(fon)
+        view.addSubview(textImage)
+        view.addSubview(fotoTwo)
+        view.addSubview(fotoThree)
+        view.addSubview(fotoFour)
+        view.addSubview(fotoOne)
+        view.addSubview(avatarImageView)
+        view.addSubview(rightImage)
+        view.addSubview(avatarImageView)
+        view.addSubview(fullNameLabel)
+        view.addSubview(statusLabel)
+        view.addSubview(statusTextField)
+        view.addSubview(setStatusButton)
+        
+        fon.snp.makeConstraints({ fon in
+            fon.top.equalTo(setStatusButton.safeAreaLayoutGuide.snp.bottom).inset(-20)
+            fon.centerX.equalTo(view.safeAreaLayoutGuide.snp.centerX)
+            fon.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
+            fon.bottom.equalTo(fotoOne.safeAreaLayoutGuide.snp.bottom).inset(-12)
+        })
+        
+        textImage.snp.makeConstraints({ textImage in
+            textImage.top.equalTo(fon.safeAreaLayoutGuide.snp.top).inset(12)
+            textImage.left.equalTo(fon.safeAreaLayoutGuide.snp.left).inset(12)
+        })
+        
+        fotoOne.snp.makeConstraints { fotoOne in
+            fotoOne.top.equalTo(textImage.safeAreaLayoutGuide.snp.top).inset(40)
+            fotoOne.left.equalTo(fon.safeAreaLayoutGuide.snp.left).inset(12)
+            fotoOne.width.equalTo(90)
+            fotoOne.height.equalTo(70)
+            
+        }
+        
+        fotoTwo.snp.makeConstraints({ fotoTwo in
+            fotoTwo.top.equalTo( textImage.safeAreaLayoutGuide.snp.top).inset(40)
+            fotoTwo.left.equalTo( fotoOne.safeAreaLayoutGuide.snp.right).inset(-12)
+            fotoTwo.width.equalTo(90)
+            fotoTwo.height.equalTo(70)
+        })
+        
+        fotoThree.snp.makeConstraints({ fotoThree in
+            fotoThree.top.equalTo( textImage.safeAreaLayoutGuide.snp.top).inset(40)
+            fotoThree.left.equalTo( fotoTwo.safeAreaLayoutGuide.snp.right).inset(-12)
+            fotoThree.width.equalTo(90)
+            fotoThree.height.equalTo(70)
+        })
+        
+        fotoFour.snp.makeConstraints({ fotoFour in
+            fotoFour.top.equalTo( textImage.safeAreaLayoutGuide.snp.top).inset(40)
+            fotoFour.left.equalTo( fotoThree.safeAreaLayoutGuide.snp.right).inset(-12)
+            fotoFour.width.equalTo(90)
+            fotoFour.height.equalTo(70)
+        })
+        
+        rightImage.snp.makeConstraints({ rightImage in
+            rightImage.centerY.equalTo( textImage.safeAreaLayoutGuide.snp.centerY)
+            rightImage.right.equalTo( fotoFour.safeAreaLayoutGuide.snp.right).inset(12)
+            rightImage.width.equalTo(20)
+            rightImage.height.equalTo(20)
+        })
+        
+        avatarImageView.snp.makeConstraints({ avatarImageView in
+            avatarImageView.top.equalTo( view.safeAreaLayoutGuide.snp.top).inset(16)
+            avatarImageView.left.equalTo( view.safeAreaLayoutGuide.snp.left).inset(16)
+            avatarImageView.width.equalTo(130)
+            avatarImageView.height.equalTo(130)
+        })
+        
+        fullNameLabel.snp.makeConstraints({ fullNameLabel in
+            fullNameLabel.top.equalTo( view.safeAreaLayoutGuide.snp.top).inset(27)
+            fullNameLabel.leading.equalTo( avatarImageView.snp.trailing).inset(-28)
+        })
+        
+        setStatusButton.snp.makeConstraints({ setStatusButton in
+            setStatusButton.top.equalTo( avatarImageView.snp.bottom).inset(-16)
+            setStatusButton.leading.equalTo( view.safeAreaLayoutGuide.snp.leading).inset(16)
+            setStatusButton.trailing.equalTo( view.safeAreaLayoutGuide.snp.trailing).inset(16)
+            setStatusButton.height.equalTo(50)
+        })
+        
+        statusLabel.snp.makeConstraints({ statusLabel in
+            statusLabel.left.equalTo(fullNameLabel.snp.left)
+            statusLabel.bottom.equalTo( fullNameLabel.snp.bottom).inset(-30)
+        })
+        
+        statusTextField.snp.makeConstraints({ statusTextField in
+            statusTextField.left.equalTo( statusLabel.snp.left)
+            statusTextField.bottom.equalTo( statusLabel.snp.bottom).inset(-60)
+            statusTextField.height.equalTo(38)
+            statusTextField.width.equalTo(130)
+        })
+        
+    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
     }
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         posts.count
@@ -394,7 +408,7 @@ class ProfileHeaderView : UIViewController, UITableViewDataSource {
         cell.setupCell(publications: posts[indexPath.row])
         return cell
     }
-    }
+}
 
 extension ProfileHeaderView : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) ->
@@ -402,3 +416,4 @@ extension ProfileHeaderView : UITableViewDelegate {
         400
     }
 }
+
