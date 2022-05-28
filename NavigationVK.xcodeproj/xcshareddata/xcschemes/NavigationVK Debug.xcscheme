@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "966F7BC527D1270700C6A662"
-               BuildableName = "NavigationVK.app"
+               BuildableName = "NavigationVK Debug.app"
                BlueprintName = "NavigationVK Debug"
                ReferencedContainer = "container:NavigationVK.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "966F7BC527D1270700C6A662"
-            BuildableName = "NavigationVK.app"
+            BuildableName = "NavigationVK Debug.app"
             BlueprintName = "NavigationVK Debug"
             ReferencedContainer = "container:NavigationVK.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "966F7BC527D1270700C6A662"
-            BuildableName = "NavigationVK.app"
+            BuildableName = "NavigationVK Debug.app"
             BlueprintName = "NavigationVK Debug"
             ReferencedContainer = "container:NavigationVK.xcodeproj">
          </BuildableReference>

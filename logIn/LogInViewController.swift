@@ -78,14 +78,10 @@ class LogInViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        #if Release
-        view.backgroundColor = .green
-        #else
-        #endif
-        
         #if DEBUG
         view.backgroundColor = .red
         #else
+        view.backgroundColor = .systemGreen
         #endif
         
         setupViews()

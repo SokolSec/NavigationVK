@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import iOSIntPackage
 
 class OpenViewCollectionCell: UICollectionViewCell {
     
@@ -22,6 +23,7 @@ class OpenViewCollectionCell: UICollectionViewCell {
         super.init(frame: frame)
         contentView.backgroundColor = .systemMint
         contentView.addSubview(imageView)
+        
         
         let images = [
             UIImage(named: "1"),
@@ -63,4 +65,5 @@ class OpenViewCollectionCell: UICollectionViewCell {
         super.prepareForReuse()
         imageView.image = nil
     }
+    
 }
