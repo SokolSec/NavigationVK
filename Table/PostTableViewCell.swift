@@ -24,7 +24,7 @@ class PostTableViewCell: UITableViewCell {
         return author
     }()
  
-      private let imagePost : UIImageView = {
+    private let imagePost : UIImageView = {
         let imagePost = UIImageView()
         imagePost.translatesAutoresizingMaskIntoConstraints = false
         return imagePost
@@ -61,6 +61,7 @@ class PostTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+        
     }
     
     private func customCell() {
@@ -69,26 +70,19 @@ class PostTableViewCell: UITableViewCell {
         newView.layer.borderColor = UIColor.black.cgColor
     }
     
-        let imageProcessor = ImageProcessor()
-
+    
+        
+ 
     
     private func layout() {
         contentView.addSubview(newView)
+
         contentView.addSubview(imagePost)
         contentView.addSubview(authorPost)
         contentView.addSubview(descriptionPost)
         contentView.addSubview(likesPost)
         contentView.addSubview(viewsPost)
         
-        if let image = imagePost.image {
-            imageProcessor.processImage(sourceImage: image, filter: .posterize) { filteredImage in
-           if let filteredImage = filteredImage {
-               imagePost.image = filteredImage
-           }
-          }
-        }
-    
-    
         NSLayoutConstraint.activate([
             newView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             newView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
@@ -119,16 +113,30 @@ class PostTableViewCell: UITableViewCell {
             
             viewsPost.topAnchor.constraint(equalTo: descriptionPost.safeAreaLayoutGuide.bottomAnchor, constant: 10),
             viewsPost.rightAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.rightAnchor, constant: -9)
-            
-            
         ])
     }
+    
+    let imageProcessor = ImageProcessor()
+
         
     func setupCell(publications: Post) {
+        
         authorPost.text = publications.author
         imagePost.image = publications.image
         descriptionPost.text = publications.description
         likesPost.text = "Likes: \(publications.likes)"
         viewsPost.text = "Views: \(publications.views)"
+        
+        if let image = imagePost.image {
+            imageProcessor.processImage(sourceImage: image, filter: .crystallize(radius: 7.0)) { filteredImage in
+           if let filteredImage = filteredImage {
+               imagePost.image = filteredImage
+           }
+          }
+        }
     }
+    
+    
 }
+
+

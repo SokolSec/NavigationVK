@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "6AABD28B-9936-489D-B9B6-4B16FCB5B01A"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2D73501E-08A5-4C13-8FE6-707F9EFAC09D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Table/PostTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "imagePost"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "2D73501E-08A5-4C13-8FE6-707F9EFAC09D - 777659c2ad21d180"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; __C.UIImageView in variable initialization expression of NavigationVK_Debug.PostTableViewCell.imagePost : __C.UIImageView"
+                  moduleName = "NavigationVK Debug"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daniilsokol/Desktop/eqeqw/NavigationVK/Table/PostTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "2D73501E-08A5-4C13-8FE6-707F9EFAC09D - 146d58faca23d82b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NavigationVK_Debug.PostTableViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; NavigationVK_Debug.PostTableViewCell"
+                  moduleName = "NavigationVK Debug"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daniilsokol/Desktop/eqeqw/NavigationVK/Table/PostTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "192">
+               </Location>
+               <Location
+                  uuid = "2D73501E-08A5-4C13-8FE6-707F9EFAC09D - 5c040a1caf830919"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NavigationVK_Debug.PostTableViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;NavigationVK_Debug.PostTableViewCell&gt;"
+                  moduleName = "NavigationVK Debug"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daniilsokol/Desktop/eqeqw/NavigationVK/Table/PostTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  uuid = "2D73501E-08A5-4C13-8FE6-707F9EFAC09D - 6094b1ece491d676"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; __C.UIImageView in variable initialization expression of StorageService.PostTableViewCell.imagePost : __C.UIImageView"
+                  moduleName = "StorageService"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daniilsokol/Desktop/eqeqw/NavigationVK/Table/PostTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "2D73501E-08A5-4C13-8FE6-707F9EFAC09D - 25a035696fe984ad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StorageService.PostTableViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; StorageService.PostTableViewCell"
+                  moduleName = "StorageService"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daniilsokol/Desktop/eqeqw/NavigationVK/Table/PostTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "192">
+               </Location>
+               <Location
+                  uuid = "2D73501E-08A5-4C13-8FE6-707F9EFAC09D - 66bcb59c5711029f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StorageService.PostTableViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;StorageService.PostTableViewCell&gt;"
+                  moduleName = "StorageService"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daniilsokol/Desktop/eqeqw/NavigationVK/Table/PostTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "180">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BBB67947-D1D9-46AD-94A8-5C09957B50AF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Table/PostTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "PostTableViewCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "BBB67947-D1D9-46AD-94A8-5C09957B50AF - 5c040a1caf830728"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NavigationVK_Debug.PostTableViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;NavigationVK_Debug.PostTableViewCell&gt;"
+                  moduleName = "NavigationVK Debug"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daniilsokol/Desktop/eqeqw/NavigationVK/Table/PostTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "320">
+               </Location>
+               <Location
+                  uuid = "BBB67947-D1D9-46AD-94A8-5C09957B50AF - 66bcb59c57110cae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StorageService.PostTableViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;StorageService.PostTableViewCell&gt;"
+                  moduleName = "StorageService"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daniilsokol/Desktop/eqeqw/NavigationVK/Table/PostTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "320">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E2BBA5E9-AC98-46C2-BEB1-65F79ED40624"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Table/PostTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "PostTableViewCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "E2BBA5E9-AC98-46C2-BEB1-65F79ED40624 - f8b2934978d50a3c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NavigationVK_Debug.PostTableViewCell.layout() -&gt; ()"
+                  moduleName = "NavigationVK Debug"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daniilsokol/Desktop/eqeqw/NavigationVK/Table/PostTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "592">
+               </Location>
+               <Location
+                  uuid = "E2BBA5E9-AC98-46C2-BEB1-65F79ED40624 - 39f566fdc6c8539d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StorageService.PostTableViewCell.layout() -&gt; ()"
+                  moduleName = "StorageService"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/daniilsokol/Desktop/eqeqw/NavigationVK/Table/PostTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "592">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5231D5EF-3EE9-4741-8937-866964218D51"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Table/PostTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "PostTableViewCell"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
